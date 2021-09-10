@@ -1,3 +1,11 @@
 // colors
 $white: #ffd5d5;
 $black: #222;
+
+//sizes
+$xs: 576;
+$mobile: $xs + px;
+$md: 768;
+$tablet: $md + px;
+$lg: 960;
+$desktop: $lg + px;

@@ -38,13 +38,20 @@ export default {
          bottom: 0;
          color: $white;
          padding: 10px 0;
-         h2{
-             margin-bottom: 20px;
-             font-size: 30px;
-         }
+
          .desc{
-             line-height: 1.5;
+              line-height: 1.5;
              font-size: 16px;
+                 @include media(tablet){
+                 font-size: 12px;
+             }
+              @include media(desctop){
+                 font-size: 14px;
+                 line-height: 1,2;
+             }
+             @include media(mobile){
+                 display: none;
+             }
          }
         }
     }
