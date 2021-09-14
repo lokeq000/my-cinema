@@ -1,33 +1,38 @@
 <template>
   <div class="home">
-   <slider
-   :popular='popular'
+    <div class="container">
+ <slider
+   :popular='TOP_FIVE_FILMS'
    />
+    </div>
+
   </div>
 </template>
 
 <script>
-import server from "@/assets/libs/server.js"
+import { mapGetters} from 'vuex'
 import Slider from '../components/slider.vue'
 // @ is an alias to /src
 
 
 export default {
+  components:{Slider},
   name: 'Home',
   data(){
     return{
-      popular:[]
-      
+ test:[]
     }
   },
-  created(){
-   server('popular').then(data=>{
-     this.popular = data.results.slice(0, 5)
-   })
-  },
-  components: {
-    Slider
+  methods:{
   
+  },
+  computed:{
+    ...mapGetters(['TOP_FIVE_FILMS']),
+  },
+  mounted(){
+
+
+  console.log('this.popular '+this.popular)
   }
 }
 </script>
