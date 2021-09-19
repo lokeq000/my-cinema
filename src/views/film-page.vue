@@ -1,5 +1,6 @@
 <template>
   <div class="film-page">
+      <v-header/>
       <div class="container">
            <div class="film-page__img"><img  :src="'https://image.tmdb.org/t/p/original/' + FILM_BY_ID.backdrop_path" alt=""></div>
            <div class="film-page__desc">
@@ -23,8 +24,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import vHeader from '../components/v-header.vue'
 
 export default {
+  components: { vHeader },
     name:'film-page',
     data(){
         return{
@@ -49,8 +52,9 @@ export default {
 
 <style lang="scss">
     @import "src/assets/styles/main";
+   
     .film-page{
-        margin-top: 15px;
+       
         line-height: 1.5;
         font-size: 18px;
         &__btn{
@@ -58,9 +62,7 @@ export default {
             justify-content: center;
             margin-bottom: 15px;
         }
-        div{
-            margin-top: 5px;
-        }
+      
         &__desc{
             padding: 15px;
         }

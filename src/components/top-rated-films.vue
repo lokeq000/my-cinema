@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+     
       <item-films
       v-for="filmItem in TOP_RATED" 
       :film="filmItem"

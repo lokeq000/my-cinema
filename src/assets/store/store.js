@@ -8,7 +8,8 @@ export default new Vuex.Store({
     movieList: [],
     topRated: [],
     pagination: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    filmById:{}
+    filmById:{},
+    searchFilms:[]
   },
   mutations: {
     SET_FILM_IN_MOVIE_LIST: (state, filmList) => {
@@ -24,6 +25,15 @@ export default new Vuex.Store({
     },
     SET_FILM_BY_ID:(state,film)=>{
       state.filmById = film
+    },
+    SET_SEARCH_LIST:(state,filmList)=>{
+      filmList.forEach(e=>{
+        state.searchFilms.push(e)
+      })
+     
+    },
+    CLEAR_SEARCH:(state)=>{
+      state.searchFilms = []
     }
   },
   actions: {
@@ -46,6 +56,15 @@ export default new Vuex.Store({
         console.log(res)
         commit("SET_FILM_BY_ID", res.data)
       })
+    },
+    SEARCH_FILM({commit},value){
+      return axios.get(`https://api.themoviedb.org/3/search/movie?api_key=3d443aa4cf7777bb16b68b2da9b40f93&language=ru-RU&query=${value}&page=1&include_adult=false`)
+      .then(res=>{
+        commit("SET_SEARCH_LIST", res.data.results)
+      })
+    },
+    CLEAR_SEARCH_LIST({commit}){
+      commit("CLEAR_SEARCH")
     }
   },
   getters: {
@@ -60,6 +79,9 @@ export default new Vuex.Store({
     },
     FILM_BY_ID(state){
       return state.filmById
+    },
+    SEARCH_FILM_STATE(state){
+      return state.searchFilms
     }
   },
   modules: {

@@ -2,6 +2,12 @@
   <div class="home">
   <v-header/>
     <div class="container">
+       <p v-if="SEARCH_FILM_STATE.length > 0" style="border-bottom:1px solid blueviolet; cursor:pointer;color:blueviolet" @click="CLEAR_SEARCH_LIST()">Очистить поиск</p>
+      <item-films
+        v-for="filmItem in SEARCH_FILM_STATE" 
+      :film="filmItem"
+      :key="filmItem.id"
+      />
  <slider
    :popular='TOP_FIVE_FILMS'
    />
@@ -12,7 +18,8 @@
 </template>
 
 <script>
-import { mapGetters} from 'vuex'
+import { mapGetters, mapActions} from 'vuex'
+import ItemFilms from '../components/item-films.vue'
 
 import Pagination from '../components/pagination.vue'
 import Slider from '../components/slider.vue'
@@ -22,7 +29,7 @@ import VHeader from '../components/v-header.vue'
 
 
 export default {
-  components:{Slider, Pagination, TopRatedFilms, VHeader},
+  components:{Slider, Pagination, TopRatedFilms, VHeader, ItemFilms},
   name: 'Home',
   data(){
     return{
@@ -30,10 +37,10 @@ export default {
     }
   },
   methods:{
-  
+    ...mapActions(['CLEAR_SEARCH_LIST'])
   },
   computed:{
-    ...mapGetters(['TOP_FIVE_FILMS']),
+    ...mapGetters(['TOP_FIVE_FILMS',"SEARCH_FILM_STATE"]),
   },
   mounted(){
 
