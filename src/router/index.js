@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import filmPage from "../views/film-page.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,6 +10,11 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path:"/film-page",
+    name:'filmPage',
+    component: filmPage
+  }
 ]
 
 const router = new VueRouter({

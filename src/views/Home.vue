@@ -5,18 +5,21 @@
    :popular='TOP_FIVE_FILMS'
    />
     </div>
-
+    <top-rated-films/>
+  <pagination/>
   </div>
 </template>
 
 <script>
 import { mapGetters} from 'vuex'
+import Pagination from '../components/pagination.vue'
 import Slider from '../components/slider.vue'
+import TopRatedFilms from '../components/top-rated-films.vue'
 // @ is an alias to /src
 
 
 export default {
-  components:{Slider},
+  components:{Slider, Pagination, TopRatedFilms},
   name: 'Home',
   data(){
     return{
