@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+  <v-header/>
     <div class="container">
  <slider
    :popular='TOP_FIVE_FILMS'
@@ -12,14 +13,16 @@
 
 <script>
 import { mapGetters} from 'vuex'
+
 import Pagination from '../components/pagination.vue'
 import Slider from '../components/slider.vue'
 import TopRatedFilms from '../components/top-rated-films.vue'
+import VHeader from '../components/v-header.vue'
 // @ is an alias to /src
 
 
 export default {
-  components:{Slider, Pagination, TopRatedFilms},
+  components:{Slider, Pagination, TopRatedFilms, VHeader},
   name: 'Home',
   data(){
     return{
