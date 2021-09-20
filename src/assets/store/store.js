@@ -27,6 +27,7 @@ export default new Vuex.Store({
       state.filmById = film
     },
     SET_SEARCH_LIST:(state,filmList)=>{
+      state.searchFilms=[];
       filmList.forEach(e=>{
         state.searchFilms.push(e)
       })
