@@ -1,13 +1,16 @@
-<template >
+89<template >
   <div>
     <div class="slider__inner">
       <carousel :per-page="1" :autoplay="true">
         <slide class="slider" v-for="(movie, index) in popular" :key="index">
-          <img
+          <div class="slider-btn"><button @click="btnClick(movie.id)" class="button">Подробнее</button></div>
+          <div class="slider-img">
+            <img
             :src="'https://image.tmdb.org/t/p/original/' + movie.backdrop_path"
             alt=""
             class="slider__img"
           />
+            </div>
 
           <article class="slider-desc">
             <div class="container">
@@ -27,7 +30,11 @@ export default {
       topList: [],
     };
   },
-
+  methods:{
+    btnClick(id){
+       this.$router.push({ name: "filmPage", query: { film_page:id} });
+    }
+  },
   name: "slider",
   props: ["popular"],
 
@@ -43,7 +50,13 @@ export default {
 <style lang="scss" >
 @import "src/assets/styles/main";
 
+.slider-btn{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
 .slider__inner {
+  
   position: relative;
   width: 100%;
 }
@@ -52,16 +65,13 @@ export default {
   top: 0;
 }
 .slider {
+  
   position: relative;
-
-  &__content {
-    overflow-x: hidden;
-    display: flex;
-  }
   .slider-desc {
+    
     background: $black;
     background: -moz-linear-gradient(
-      top,
+      top,877777777777777777777777777777777777777774
       rgba($white, 0) 0%,
       rgba($black, 1) 100%
     );
@@ -83,6 +93,7 @@ export default {
     padding: 10px 10px;
 
     .desc {
+      
       line-height: 1.5;
       font-size: 16px;
       @include media(tablet) {

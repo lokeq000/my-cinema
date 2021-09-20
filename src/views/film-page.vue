@@ -58,21 +58,29 @@ export default {
         line-height: 1.5;
         font-size: 18px;
         &__btn{
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             margin-bottom: 15px;
         }
       
         &__desc{
+              background-color: #e5e5e5;
             padding: 15px;
         }
         h3{
             font-size: 15px;
         }
         &__img{
+
             img{
+                   
+  box-shadow: 0px 0px 8px rgb(0, 0, 0); 
                    max-width: 100%;
             }
         }
     }
+    body{
+    background: url(../assets/dark-honeycomb.png);
+}
 </style>

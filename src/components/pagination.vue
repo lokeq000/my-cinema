@@ -29,6 +29,7 @@ export default {
   methods: {
       ...mapActions(["GET_TOP_RATED_FROM_API"]),
     pagClick(i) {
+      window.scrollTo(0,0)
       console.log(this.$router);
       this.$router.push({ name: "Home", query: { page: i } });
       this.curPage = this.$route.query.page

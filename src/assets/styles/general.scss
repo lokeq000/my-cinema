@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
 img{
     max-width: 100%;
 }
@@ -36,14 +37,20 @@ p{
 }
 
 .button{
-    background-color:  rgb(122, 122, 122);
-    color: $white;
+    background-color:  none;
+    color: $black;
     padding: 15px;
     font-size: 20px;
     border: 1px solid black;
     border-radius: 4px;
     transition: .2s linear;
     &:hover{
-        background-color: rgb(141, 91, 91);
+        color: white;
+        background-color: rgb(158, 158, 158);
     }
+    @include media(tablet) {
+        font-size: 15px;
+      
+        padding: 10px;
+      }
 }

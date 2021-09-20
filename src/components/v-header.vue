@@ -59,7 +59,17 @@ export default {
   height: 50px;
   background-color: $black;
   margin-bottom: 20px;
-
+  @include media(tablet) {
+         height: 100px;
+      }
+  &__wrapper{
+      @include media(tablet) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+      }
+  }
   &__title {
     height: 50px;
     color: white;
@@ -69,6 +79,9 @@ export default {
       h1{
      width: 300px;
      cursor: pointer;
+      @include media(tablet) {
+           width: 100%;
+      }
   }
   }
   &__search{
@@ -79,6 +92,11 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
     z-index: 50;
+     @include media(tablet) {
+      
+          transform: translateX(0) translateY(0);
+           position: static;
+      }
     .search{
       width: 300px;
       height: 25px;
