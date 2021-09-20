@@ -42,8 +42,8 @@ export default new Vuex.Store({
         state.pagination.splice(9,0,paginLastNumb+1,paginLastNumb+2,paginLastNumb+3)
         state.pagination.splice(0,3)
       }
-      if (page > 3){
-        if (page <= state.pagination[3]){
+      if (paginFirstNumb > 1){
+        if (page <= state.pagination[4]){
           state.pagination.splice(6,3)
         state.pagination.splice(0,0,paginFirstNumb-3,paginFirstNumb-2,paginFirstNumb-1)
         }

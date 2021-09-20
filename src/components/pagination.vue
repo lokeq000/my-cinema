@@ -6,6 +6,7 @@
         v-for="(item, id) in PAGIN"
         :key="id"
         @click="pagClick(item)"
+        :class="{'active-pagin':curPage === item}"
       >
         {{ item }}
       </div>
@@ -46,6 +47,9 @@ export default {
 
 <style lang="scss">
 @import "src/assets/styles/main";
+.active-pagin{
+  background-color: blueviolet;
+}
 .pagination {
   &__wrapper {
     margin-top: 20px;
