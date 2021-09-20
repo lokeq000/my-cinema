@@ -34,6 +34,20 @@ export default new Vuex.Store({
     },
     CLEAR_SEARCH:(state)=>{
       state.searchFilms = []
+    },
+    CHANGE_PAGIN:(state,page)=>{
+      let paginLastNumb = state.pagination[state.pagination.length-1]
+      let paginFirstNumb = state.pagination[0]
+      if (page > state.pagination[6]){
+        state.pagination.splice(9,0,paginLastNumb+1,paginLastNumb+2,paginLastNumb+3)
+        state.pagination.splice(0,3)
+      }
+      if (page > 3){
+        if (page <= state.pagination[3]){
+          state.pagination.splice(6,3)
+        state.pagination.splice(0,0,paginFirstNumb-3,paginFirstNumb-2,paginFirstNumb-1)
+        }
+      }
     }
   },
   actions: {
@@ -45,6 +59,7 @@ export default new Vuex.Store({
       })
     },
     GET_TOP_RATED_FROM_API({ commit }, page) {
+      commit("CHANGE_PAGIN", page)
       return axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=3d443aa4cf7777bb16b68b2da9b40f93&language=ru-RU&page=${page}&region=ru`)
         .then(res => {
           commit("SET_TOP_RATED", res.data.results)

@@ -51,6 +51,7 @@ export default {
     margin-top: 20px;
     justify-content: center;
     display: flex;
+    color: white;
   }
   &__item {
     cursor: pointer;
