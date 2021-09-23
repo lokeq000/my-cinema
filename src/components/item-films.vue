@@ -64,6 +64,7 @@ export default {
   background-color: #e5e5e5;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   height: 580px;
+  margin-bottom: 25px;
 
         @include media(tablet) {
         height: 416px;

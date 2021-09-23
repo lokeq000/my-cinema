@@ -8,10 +8,12 @@
       :film="filmItem"
       :key="filmItem.id"
       />
+      <div class="div-title"><h2>Полулярное</h2></div>
  <slider
    :popular='TOP_FIVE_FILMS'
    />
     </div>
+    <div class="div-title"><h2>Топ фильмов</h2></div>
     <top-rated-films/>
   <pagination/>
   </div>
@@ -49,3 +51,11 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.div-title{
+  text-transform: uppercase;
+  text-align: center; 
+  color: rgb(218, 218, 218);
+  margin-top: 10px;
+}
+</style>
